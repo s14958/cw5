@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cw4.DAL;
-using Cw4.Models;
+using Cw5.DAL;
+using Cw5.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cw4.Controllers
+namespace Cw5.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,24 +23,13 @@ namespace Cw4.Controllers
         [HttpGet]
         public IActionResult GetStudents(string orderBy)
         {
-            //return $"Kowalski, Majewski, Andrzejewski sortowanie={orderBy}";
             return Ok(_dbService.GetStudents());
         }
 
         [HttpGet("{IndexNumber}")]
         public IActionResult GetStudent(string IndexNumber)
         {
-            //if (id == 1)
-            //{
-            //    return Ok("Kowalski");
-            //} else if (id == 2)
-            //{
-            //    return Ok("Malewski");
-            //}
-
             return Ok(_dbService.GetStudentEnrollments(IndexNumber));
-
-            //return NotFound("Nie znaleziono studenta");
         }
 
         [HttpPost]

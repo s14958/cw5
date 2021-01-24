@@ -1,10 +1,11 @@
-﻿using Cw4.Models;
+﻿using Cw5.DTOs.Requests;
+using Cw5.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cw4.DAL
+namespace Cw5.DAL
 {
     public class MockDbService : IDbService
     {
@@ -30,6 +31,32 @@ namespace Cw4.DAL
         public ICollection<string> GetStudentEnrollments(string IndexNumber)
         {
             return _enrollments;
+        }
+
+        public Enrollment EnrollStudent(EnrollStudentRequest request)
+        {
+            // student enrolled
+            
+            return new Enrollment
+            {
+                IdEnrollment = 1,
+                IdStudy = 1,
+                Semester = 1,
+                StartDate = new DateTime()
+            };
+        }
+
+        public Enrollment PromoteStudents(int semester, string studies)
+        {
+            // student promoted
+
+            return new Enrollment
+            {
+                IdEnrollment = 1,
+                IdStudy = 1,
+                Semester = 2,
+                StartDate = new DateTime()
+            };
         }
     }
 }
